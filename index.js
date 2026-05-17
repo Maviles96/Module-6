@@ -1,12 +1,13 @@
 // https://www.omdbapi.com/?s=marvel&apikey=d7d0b17d
 
 let page = 1;
+let searchValue = "marvel";
 
 async function getMovies() {
   try {
     const res = await fetch(
-      `https://www.omdbapi.com/?s=marvel&apikey=d7d0b17d&page=${page}`
-    );
+  `https://www.omdbapi.com/?s=${searchValue}&apikey=d7d0b17d&page=${page}`
+);
 
     const data = await res.json();
 
@@ -31,6 +32,12 @@ async function getMovies() {
     console.log("Something went wrong", error);
   }
 }
+document.getElementById("search-button").addEventListener("click", () => {
+  searchValue = document.getElementById("search-input").value;
+  page = 1;
+  document.getElementById("movie-list").innerHTML = "";
+  getMovies();
+});
 
 document.getElementById("load-more").addEventListener("click", () => {
   page++;
@@ -46,3 +53,8 @@ hamMenu.addEventListener(`click`, () => {
   hamMenu.classList.toggle(`active`);
   offScreenMenu.classList.toggle(`active`);
 })
+
+document.getElementById("close-menu").addEventListener("click", () => {
+  hamMenu.classList.remove("active");
+  offScreenMenu.classList.remove("active");
+});

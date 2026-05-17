@@ -1,5 +1,5 @@
-.movie-card{
-  width: 280px;  
+.movie-card {
+  width: 100%;  
   background: #1c1c1c;
   border-radius: 16px;
   overflow: hidden;
@@ -16,7 +16,7 @@
 
 #movie-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
@@ -161,6 +161,17 @@ body {
 
 .off-screen-menu a:hover {
   color: #6f86ff;
+}
+
+#close-menu {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 .navbar {
