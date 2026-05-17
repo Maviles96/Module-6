@@ -19,13 +19,13 @@ async function getMovies() {
 
       const details = await detailsRes.json();
 
-      `document.getElementById("movie-list").innerHTML += 
-        <div class="movie-card">
+      document.getElementById("movie-list").innerHTML += 
+        `<div class="movie-card">
           <img src="${movie.Poster}" onerror="this.parentElement.remove()" />
           <h2>${movie.Title}</h2>
           <p>IMDb: ${details.imdbRating}</p>
-        </div>
-      ;`
+        </div>`
+      ;
     });
   } catch (error) {
     console.log("Something went wrong", error);
